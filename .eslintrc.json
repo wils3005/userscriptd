@@ -1,0 +1,68 @@
+{
+  "env": {
+    "node": true,
+    "window": true
+  },
+  "extends": [
+    "eslint:all",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": ["build/", "node_modules/"],
+  "overrides": [
+    {
+      "extends": [
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended"
+      ],
+      "files": ["**/*.ts"],
+      "rules": {
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-redeclare": "warn"
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "sourceType": "module"
+  },
+  "root": true,
+  "rules": {
+    "camelcase": "off",
+    "capitalized-comments": "off",
+    "func-names": "off",
+    "id-length": "off",
+    "max-lines-per-function": "off",
+    "max-params": "off",
+    "max-statements": "off",
+    "multiline-comment-style": "off",
+    "new-cap": "off",
+    "no-console": "warn",
+    "no-invalid-this": "off",
+    "no-magic-numbers": "off",
+    "no-new": "off",
+    "no-shadow": "off",
+    "no-use-before-define": "off",
+    "no-void": "off",
+    "no-warning-comments": "off",
+    "one-var": "off",
+    "require-atomic-updates": "off",
+    "sort-imports": "off",
+    "sort-keys": "off",
+    "spaced-comment": "off",
+
+    "import/exports-last": "error",
+    "import/no-default-export": "error",
+    "import/no-relative-packages": "warn",
+    "import/no-relative-parent-imports": "error",
+    "import/order": [
+      "warn",
+      { "alphabetize": { "order": "asc" }, "newlines-between": "always" }
+    ]
+  }
+}
