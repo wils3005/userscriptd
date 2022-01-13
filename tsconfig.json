@@ -16,9 +16,9 @@
     // MODULES /////////////////////////////////////////////////////////////////
     // "allowUmdGlobalAccess": false,
     "baseUrl": "./",
-    // "module": "commonjs",
-    // "moduleResolution": "node",
-    // "noResolve": false,
+    // "module":
+    "moduleResolution": "node",
+    // "noResolve":
     // "paths":
     "resolveJsonModule": true,
     // "rootDir":
@@ -27,7 +27,7 @@
     // "types":
 
     // EMIT ////////////////////////////////////////////////////////////////////
-    // "declaration": true,
+    // "declaration":
     // "declarationDir":
     // "declarationMap":
     "downlevelIteration": true,
@@ -42,7 +42,7 @@
     // "noEmit":
     // "noEmitHelpers":
     "noEmitOnError": true,
-    "outDir": "./build",
+    "outDir": "build/",
     // "outFile":
     // "preserveConstEnums":
     // "preserveValueImports":
@@ -61,8 +61,8 @@
     // INTEROP CONSTRAINTS /////////////////////////////////////////////////////
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    // "forceConsistentCasingInFileNames": false,
-    // "isolatedModules":
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
     // "preserveSymlinks":
 
     // BACKWARDS COMPATIBILITY /////////////////////////////////////////////////
@@ -72,16 +72,16 @@
     // "suppressImplicitAnyIndexErrors":
 
     // LANGUAGE AND ENVIRONMENT ////////////////////////////////////////////////
-    // "emitDecoratorMetadata": true,
-    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata":
+    // "experimentalDecorators":
     // "jsx":
     // "jsxFactory":
     // "jsxFragmentFactory":
     // "jsxImportSource":
-    "lib": ["dom"],
+    // "lib":
     // "noLib":
     // "reactNamespace":
-    "target": "es5",
+    "target": "es6",
     // "useDefineForClassFields":
 
     // COMPILER DIAGNOSTICS ////////////////////////////////////////////////////
@@ -90,7 +90,7 @@
     // "extendedDiagnostics":
     // "generateCpuProfile":
     // "listEmittedFiles":
-    // "listFiles": true,
+    // "listFiles":
     // "traceResolution":
 
     // PROJECTS ////////////////////////////////////////////////////////////////

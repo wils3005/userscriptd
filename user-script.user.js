@@ -3,10 +3,10 @@
 // @namespace   9d890fd8-d20a-42ae-a7fa-3c046b61d26b
 // @match       *://*/*
 // @grant       GM_xmlhttpRequest
-// @version     1.0
+// @version     0.1.0
 // ==/UserScript==
 
-const main = function () {
+const main = () => {
   GM_xmlhttpRequest({
     method: "GET",
     onload: ({ response }) => console.debug(response),
@@ -14,4 +14,4 @@ const main = function () {
   });
 };
 
-addEventListener("load", () => void main());
+addEventListener("load", main);

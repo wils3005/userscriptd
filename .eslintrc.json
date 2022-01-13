@@ -1,8 +1,5 @@
 {
-  "env": {
-    "node": true,
-    "window": true
-  },
+  "env": { "browser": true, "node": true },
   "extends": [
     "eslint:all",
     "plugin:import/recommended",
@@ -18,12 +15,7 @@
         "plugin:prettier/recommended"
       ],
       "files": ["**/*.ts"],
-      "rules": {
-        "@typescript-eslint/interface-name-prefix": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-        "@typescript-eslint/no-redeclare": "warn"
-      }
+      "rules": {}
     }
   ],
   "parser": "@typescript-eslint/parser",
@@ -42,7 +34,7 @@
     "max-statements": "off",
     "multiline-comment-style": "off",
     "new-cap": "off",
-    "no-console": "warn",
+    "no-console": "off",
     "no-invalid-this": "off",
     "no-magic-numbers": "off",
     "no-new": "off",
@@ -52,16 +44,13 @@
     "no-warning-comments": "off",
     "one-var": "off",
     "require-atomic-updates": "off",
+    "require-unicode-regexp": "off",
     "sort-imports": "off",
     "sort-keys": "off",
     "spaced-comment": "off",
 
-    "import/exports-last": "error",
-    "import/no-default-export": "error",
-    "import/no-relative-packages": "warn",
-    "import/no-relative-parent-imports": "error",
     "import/order": [
-      "warn",
+      "error",
       { "alphabetize": { "order": "asc" }, "newlines-between": "always" }
     ]
   }

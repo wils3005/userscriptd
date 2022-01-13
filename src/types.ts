@@ -1,18 +1,32 @@
+import type {
+  FastifyError,
+  FastifyInstance,
+  FastifyRequest,
+  FastifyReply,
+} from "fastify";
+
+declare global {
+  function GM_xmlhttpRequest<CONTEXT_TYPE>(
+    details: GM_Types.XHRDetails<CONTEXT_TYPE>
+  ): GM_Types.AbortHandle<void>;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-namespace
 namespace GM_Types {
-  type ValueChangeListener = (
+  export type ValueChangeListener = (
     name: string,
     oldValue: unknown,
     newValue: unknown,
     remote: boolean
   ) => unknown;
 
-  interface OpenTabOptions {
+  export interface OpenTabOptions {
     active?: boolean;
     insert?: boolean;
     setParent?: boolean;
   }
 
-  interface XHRResponse<CONTEXT_TYPE> extends Function {
+  export interface XHRResponse<CONTEXT_TYPE> extends Function {
     DONE: 4;
     HEADERS_RECEIVED: 2;
     LOADING: 3;
@@ -30,7 +44,7 @@ namespace GM_Types {
     responseXML: Document | null;
   }
 
-  interface XHRProgress<CONTEXT_TYPE> extends XHRResponse<CONTEXT_TYPE> {
+  export interface XHRProgress<CONTEXT_TYPE> extends XHRResponse<CONTEXT_TYPE> {
     done: number;
     lengthComputable: boolean;
     loaded: number;
@@ -39,9 +53,9 @@ namespace GM_Types {
     totalSize: number;
   }
 
-  type Listener<OBJ> = (this: OBJ, event: OBJ) => unknown;
+  export type Listener<OBJ> = (this: OBJ, event: OBJ) => unknown;
 
-  interface XHRDetails<CONTEXT_TYPE> {
+  export interface XHRDetails<CONTEXT_TYPE> {
     method?: "GET" | "HEAD" | "POST";
     url?: string;
     headers?: { readonly [key: string]: string };
@@ -60,16 +74,16 @@ namespace GM_Types {
     onloadstart?: Listener<XHRResponse<CONTEXT_TYPE>>;
     onprogress?: Listener<XHRProgress<CONTEXT_TYPE>>;
     onreadystatechange?: Listener<XHRResponse<CONTEXT_TYPE>>;
-    ontimeout?: Listener<Function>;
-    onabort?: Function;
-    onerror?: Function;
+    ontimeout?: Listener<() => unknown>;
+    onabort?: () => unknown;
+    onerror?: () => unknown;
   }
 
-  interface AbortHandle<RETURN_TYPE> {
+  export interface AbortHandle<RETURN_TYPE> {
     abort(): RETURN_TYPE;
   }
 
-  interface DownloadError {
+  export interface DownloadError {
     error:
       | "not_enabled"
       | "not_whitelisted"
@@ -79,7 +93,7 @@ namespace GM_Types {
     details?: string;
   }
 
-  interface DownloadDetails {
+  export interface DownloadDetails {
     url: string;
     name: string;
     headers?: { readonly [key: string]: string };
@@ -91,14 +105,18 @@ namespace GM_Types {
     onprogress?: Listener<XHRProgress<void>>;
   }
 
-  interface NotificationThis extends NotificationDetails {
+  export interface NotificationThis extends NotificationDetails {
     id: string;
   }
 
-  type NotificationOnClick = (this: NotificationThis) => unknown;
-  type NotificationOnDone = (this: NotificationThis, clicked: boolean) => unknown;
+  export type NotificationOnClick = (this: NotificationThis) => unknown;
 
-  interface NotificationDetails {
+  export type NotificationOnDone = (
+    this: NotificationThis,
+    clicked: boolean
+  ) => unknown;
+
+  export interface NotificationDetails {
     text?: string;
     title?: string;
     image?: string;
@@ -108,10 +126,10 @@ namespace GM_Types {
     ondone?: NotificationOnDone;
   }
 }
-declare global {
-  function GM_xmlhttpRequest<CONTEXT_TYPE>(
-    details: GM_Types.XHRDetails<CONTEXT_TYPE>
-  ): GM_Types.AbortHandle<void>;
-}
 
-export {};
+export type FastifyErrorHandler = (
+  this: FastifyInstance,
+  error: FastifyError,
+  _: FastifyRequest,
+  reply: FastifyReply
+) => Promise<void>;
